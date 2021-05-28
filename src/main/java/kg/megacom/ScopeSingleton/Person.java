@@ -1,7 +1,5 @@
 package kg.megacom.ScopeSingleton;
 
-
-
 public class Person {
 
     private String name;
