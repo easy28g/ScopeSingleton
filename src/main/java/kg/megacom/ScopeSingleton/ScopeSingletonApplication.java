@@ -21,24 +21,22 @@ public class ScopeSingletonApplication {
 //        System.out.println(person);
 
 
-//        Author author = context.getBean("author", Author.class);
-//        System.out.println(author.getPerson());
-
-//        PersonService impl1 = context.getBean("personServiceImpl", PersonServiceImpl.class);
-//        System.out.println(impl1.getPerson());
-//
-//        PersonService impl2 = context.getBean("personServiceImpl2", PersonServiceImpl2.class);
-//        System.out.println(impl2.getPerson());
-
         Author author = context.getBean("author", Author.class);
-        System.out.println(author.getPerson());
+        author.testPersonService();
+
+        Author author1 = context.getBean("author", Author.class);
+        author1.testPersonService();
+
+        System.out.println(author.equals(author1));
+
 
 //        PersonService personImpl = context.getBean("personServiceImpl", PersonServiceImpl.class);
 //        System.out.println(personImpl.getPerson());
 //
-//        PersonService personImpl2 = context.getBean( "personServiceImpl2" ,PersonServiceImpl2.class);
-//        System.out.println(personImpl2.getPerson());
-
+//        PersonService personImpl3 = context.getBean("personServiceImpl", PersonServiceImpl.class);
+//        System.out.println(personImpl3.getPerson());
+//
+//        System.out.println(personImpl.equals(personImpl3));
 
 	}
 

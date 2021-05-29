@@ -5,23 +5,29 @@ import kg.megacom.ScopeSingleton.service.impl.PersonServiceImpl;
 import kg.megacom.ScopeSingleton.service.impl.PersonServiceImpl2;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
+import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Component;
 
 @Component
+@Scope("singleton") // если написать вместо singleton --- prototype, то в ответе будет false
 public class Author {
 
     @Autowired
-    PersonService person;
+    private Person person;
 
-    public Author(PersonService person) {
+    @Autowired
+    @Qualifier("personServiceImpl")
+    private PersonService personService;
+
+    public Author(Person person) {
         this.person = person;
     }
 
-    public PersonService getPerson() {
+    public Person getPerson() {
         return person;
     }
 
-    public void setPerson(PersonService person) {
+    public void setPerson(Person person) {
         this.person = person;
     }
 
@@ -30,5 +36,10 @@ public class Author {
         return "Author{" +
                 "person=" + person +
                 '}';
+    }
+
+    public void testPersonService(){
+        Person person = personService.getPerson();
+        System.out.println("Test == "+person);
     }
 }

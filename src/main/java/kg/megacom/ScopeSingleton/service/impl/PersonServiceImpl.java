@@ -13,6 +13,7 @@ import org.springframework.stereotype.Component;
 import org.springframework.stereotype.Service;
 
 @Service
+@Scope("prototype") // в ответе получим false
 public class PersonServiceImpl implements PersonService {
 
     @Override
